@@ -1,0 +1,48 @@
+<aside class="col-sm-3">
+	
+	<p>
+	    <button class="btn btn-block btn-primary btn-default" data-ng-click="callback()">Callback</button>
+	</p>
+	<p>
+	    <button class="btn btn-block btn-primary btn-default" data-ng-click="promise()">Promise</button>
+   </p>
+	<p>
+	    <select class="form-control" data-ng-change="filterPayment(paymentMethod)" data-ng-model="paymentMethod">
+	    	<option value="" default selected>All methods</option>
+      		<option value="creditcard">Credit Card</option>
+      		<option value="bank-transfer">Bank Transfer</option>
+      		<option value="ideal">Ideal</option>
+	    </select>
+   </p>
+	<p>
+	    <button class="btn btn-block btn-primary btn-default" data-ng-click="navigateToAdd()">Add payment</button>
+   </p>
+
+</aside>
+
+<section class="col-sm-9">
+    <table class="table table-bordered table-striped table-hover">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Method</th>
+				<th>Amount</th>
+				<th>Currency</th>
+				<th>Created</th>
+				<th>Status</th>
+				<th>Merchant</th>
+		</thead>
+
+		<tbody>
+			<tr ng-repeat="payment in payments">
+				<td><span data-ng-bind="payment.id"></span></td>
+				<td><span data-ng-bind="payment.method"></span></td>
+				<td><span data-ng-bind="payment.amount"></span></td>
+				<td><span data-ng-bind="payment.currency"></span></td>
+				<td><span data-ng-bind="payment.created"></span></td>
+				<td><span data-ng-bind="payment.status"></span></td>
+				<td><span data-ng-bind="payment.merchant"></span></td>
+			</tr>
+		</tbody>
+	</table>
+</section>

@@ -1,0 +1,67 @@
+<div class="col-md-9">
+	<form name="gingerPaymentForm" novalidate class="form-horizontal" data-ng-submit="addPayment()">
+
+		<div class="alert alert-success" data-ng-show="gingerPaymentForm.$submitted && success">New payment added successfully</div>
+		<div class="alert alert-danger" data-ng-show="gingerPaymentForm.$submitted && !success">Error savidata-ng new payment</div>
+
+		<div class="form-group">
+			<h3 class="col-md-10 col-md-push-2">Add Payment</h3>
+		</div>
+		<div class="form-group">
+			<label for="method" class="col-md-2 control-label">Method</label>
+			<div class="col-md-5">
+			    <select class="form-control" id="method" name="method" data-ng-model="payment.method" required>
+			    	<option value="" disabled selected>Payment method</option>
+		      		<option value="creditcard">Credit Card</option>
+		      		<option value="bank-transfer">Bank Transfer</option>
+		      		<option value="ideal">Ideal</option>
+			    </select>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="amount" class="col-md-2 control-label">Amount</label>
+			<div class="col-md-3">
+				<input type="number" class="form-control" id="amount" name="amount" placeholder="Payment Amount" data-ng-model="payment.amount" required data-ng-pattern="/^[0-9]{1,6}$/">
+			</div>
+		</div>		
+
+		<div class="form-group">
+			<label for="currency" class="col-md-2 control-label">Currency</label>
+			<div class="col-md-2">
+			    <select class="form-control" id="currency" name="currency" data-ng-model="payment.currency" required>
+			    	<option value="" disabled selected>Currency</option>
+		      		<option value="USD">USD</option>
+		      		<option value="EUR">EUR</option>
+		      		<option value="GBP">GBP</option>
+		      		<option value="AUD">AUD</option>
+			    </select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="status" class="col-md-2 control-label">Status</label>
+			<div class="col-md-2">
+			    <select class="form-control" id="status" name="status" data-ng-model="payment.status" required>
+			    	<option value="" disabled selected>Status</option>
+		      		<option value="accepted">Accepted</option>
+		      		<option value="denied">Denied</option>
+			    </select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="merchant" class="col-md-2 control-label">Merchant</label>
+			<div class="col-md-3">
+				<input type="text" class="form-control" id="merchant" name="merchant" placeholder="Merchant" data-ng-model="payment.merchant" required />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<button type="submit" data-ng-disabled="gingerPaymentForm.$invalid" class="btn btn-default btn-success">Add Payment</button>
+			</div>
+		</div>
+
+	</form>
+</div>

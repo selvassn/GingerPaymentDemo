@@ -1,0 +1,10 @@
+header { 
+  margin: 30px 0;
+}
+
+input.ng-touched.ng-invalid {
+  border-color: #d9534f;
+}
+input.ng-touched.ng-valid {
+  border-color: #5cb85c;
+}
